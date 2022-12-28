@@ -1,18 +1,29 @@
-function BookCreate() {
-    const handleChange = (e) => {
-        e.preventDefault();
+import { useState } from "react";
 
+function BookCreate({ onCreate }) {
+    const [title, setTitle] = useState('');
+
+    const handleChange = (e) => {
+        setTitle(e.target.value);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onCreate(title);
+
+        // Serve pra limpar o input depois do user submit
+        setTitle('');
     }
 
     return (
-        <div className="search-bar">
-            <form onSubmit={handleFormSubmit}>
-                <input onChange={handleChange} placeholder='Enter book title' spellCheck={false} />
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input value={title} onChange={handleChange} placeholder="Enter book title" />
                 <button>Submit</button>
-                hello
             </form>
-        </div >
+        </div>
     )
 }
 
 export default BookCreate;
+
