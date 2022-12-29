@@ -5,7 +5,15 @@ function App() {
     const [books, setBooks] = useState([]);
 
     const createBook = (title) => {
-        console.log(`Need to add the book called: ${title}`);
+        const updatedBooks = [
+            ...books,
+            {
+                id: Math.floor(Math.random() * 9999),
+                title
+            }
+            // Só escrever title é uma shorthand pra title: title
+        ];
+        setBooks(updatedBooks);
     }
 
     // const editBook = () => {
@@ -18,6 +26,7 @@ function App() {
 
     return (
         <div>
+            {books.length}
             <BookCreate onCreate={createBook} />
         </div>
     )
