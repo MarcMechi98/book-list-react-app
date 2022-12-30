@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BookEdit from './BookEdit';
 
-function BookShow({ book, onDelete }) {
+function BookShow({ book, onDelete, onEdit }) {
     const [showEdit, setShowEdit] = useState(false);
 
     const handleDeleteClick = () => {
@@ -13,10 +13,14 @@ function BookShow({ book, onDelete }) {
         // lembra que o ! antes inverte o value atual
     }
 
+    const handleSubmit = () => {
+        setShowEdit(false);
+    }
+
     let content = <h3>{book.title}</h3>;
 
     if (showEdit) {
-        content = <BookEdit book={book} />;
+        content = <BookEdit book={book} onEdit={onEdit} onSubmit={handleSubmit} />;
     }
 
     return (
@@ -26,7 +30,7 @@ function BookShow({ book, onDelete }) {
             </div>
 
             <div className="actions">
-                <button className="edit" onClick={handleEditClick}>
+                <button className="edit" onSubmit={handleSubmit} onClick={handleEditClick}>
                     Edit
                 </button>
 

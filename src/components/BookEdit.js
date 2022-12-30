@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function BookEdit({ book }) {
+function BookEdit({ book, onEdit, onSubmit }) {
     const [title, setTitle] = useState(book.title);
 
     const handleChange = (e) => {
@@ -9,13 +9,15 @@ function BookEdit({ book }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(`New title is: ${title}`)
-
+        onEdit(book.id, title);
+        onSubmit();
     }
 
     return (
         <form className="book-edit" onSubmit={handleSubmit}>
-            <label>Title</label>
+            <label>
+                Title
+            </label>
             <input className="input" value={title} onChange={handleChange} />
             <button className="button is-primary">
                 Save
