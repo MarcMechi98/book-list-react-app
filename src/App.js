@@ -1,4 +1,5 @@
 import BookCreate from "./components/BookCreate";
+import BookList from "./components/BookList";
 import { useState } from "react";
 
 function App() {
@@ -10,24 +11,23 @@ function App() {
             {
                 id: Math.floor(Math.random() * 9999),
                 title
+                // Só escrever title é uma shorthand pra title: title
             }
-            // Só escrever title é uma shorthand pra title: title
         ];
         setBooks(updatedBooks);
     }
 
-    // const editBook = () => {
-
-    // }
-
-    // const deleteBook = () => {
-
-    // }
+    const deleteBookById = (targetId) => {
+        const updatedBooks = books.filter((book) => {
+            return book.id !== targetId;
+        });
+        setBooks(updatedBooks);
+    }
 
     return (
-        <div>
-            {books.length}
+        <div className="app">
             <BookCreate onCreate={createBook} />
+            <BookList listOfBooks={books} onDelete={deleteBookById} />
         </div>
     )
 }
