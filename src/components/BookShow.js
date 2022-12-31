@@ -13,21 +13,21 @@ function BookShow({ book, onDelete, onEdit }) {
         // lembra que o ! antes inverte o value atual
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (id, newTitle) => {
         setShowEdit(false);
+        onEdit(id, newTitle);
     }
 
     let content = <h3>{book.title}</h3>;
 
     if (showEdit) {
-        content = <BookEdit book={book} onEdit={onEdit} onSubmit={handleSubmit} />;
+        content = <BookEdit book={book} onSubmit={handleSubmit} />;
     }
 
     return (
         <div className="book-show">
-            <div>
-                {content}
-            </div>
+            <img src={`https://picsum.photos/seed/${book.id}/300/200`} alt="random book"></img>
+            <div>{content}</div>
 
             <div className="actions">
                 <button className="edit" onSubmit={handleSubmit} onClick={handleEditClick}>
