@@ -25,19 +25,26 @@ function App() {
         setBooks(updatedBooks);
     }
 
-    const deleteBookById = (targetId) => {
+    const deleteBookById = async (targetId) => {
+        const response = await axios.delete(`http://localhost:3001/books/${targetId}`);
+
         const updatedBooks = books.filter((book) => {
             return book.id !== targetId;
         });
         setBooks(updatedBooks);
     }
 
-    const editBookById = (targetId, newTitle) => {
+    const editBookById = async (targetId, newTitle) => {
+        const response = await axios.put(`http://localhost:3001/books/${targetId}`, {
+            title: newTitle
+        });
+
         const updatedBooks = books.map((book) => {
             if (book.id === targetId) {
                 return {
                     ...book,
-                    title: newTitle
+                    ...response.data
+                    // This is the updated book object that came back from the api
                 }
             }
             return book;
