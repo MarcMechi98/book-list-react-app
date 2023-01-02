@@ -49,6 +49,7 @@ function App() {
             }
             return book;
         });
+
         setBooks(updatedBooks);
     }
 
