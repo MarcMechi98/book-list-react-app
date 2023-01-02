@@ -1,3 +1,16 @@
 {
-  "books": []
+  "books": [
+    {
+      "title": "joao",
+      "id": 1
+    },
+    {
+      "title": "cidade dos ossos",
+      "id": 2
+    },
+    {
+      "title": "miguel",
+      "id": 3
+    }
+  ]
 }

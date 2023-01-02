@@ -1,19 +1,27 @@
 import BookCreate from "./components/BookCreate";
 import BookList from "./components/BookList";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
     const [books, setBooks] = useState([]);
 
-    const createBook = (title) => {
-        const updatedBooks = [
-            ...books,
-            {
-                id: Math.floor(Math.random() * 9999),
-                title
-                // Só escrever title é uma shorthand pra title: title
-            }
-        ];
+    const fetchBooks = async () => {
+        const response = await axios.get('http://localhost:3001/books');
+
+        setBooks(response.data);
+    }
+
+    useEffect(() => {
+        fetchBooks();
+    }, []);
+
+    const createBook = async (title) => {
+        const response = await axios.post('http://localhost:3001/books', { title });
+        // post é um method que eu preciso adicionar algo na request
+        // nesse caso, to adicionando um object de key title e value title
+
+        const updatedBooks = [...books, response.data];
         setBooks(updatedBooks);
     }
 
