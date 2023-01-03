@@ -12,9 +12,7 @@ function BookList({ listOfBooks, onDelete, onEdit }) {
     return (
         <div className='book-list'>
             {count}
-            <button onClick={incrementCount}>
-                Click
-            </button>
+            <button onClick={incrementCount}>Click</button>
             {renderedBooks}
         </div>
     )

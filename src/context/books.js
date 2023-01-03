@@ -12,11 +12,18 @@ function Provider({ children }) {
         }
     }
 
-    return <BooksContext.Provider value={valueToShare}>
-        {children}
-    </BooksContext.Provider>
+    return (
+        <BooksContext.Provider value={valueToShare}>
+            {/* Os components que eu colocar dentro do provider vão ter acesso
+            ao que ta dentro do value */}
+            {children}
+        </BooksContext.Provider>
+    )
 
 }
 
+// A property Provider foi passada por destructuring
 export { Provider };
 export default BooksContext;
+// Pra importar os dois ao mesmo tempo:
+// import { Provider }, BooksContext from 'filepath'
