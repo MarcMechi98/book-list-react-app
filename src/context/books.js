@@ -1,17 +1,18 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useCallback } from "react";
 import axios from "axios";
 
 // Creating the Context Oject
 const BooksContext = createContext();
 
+// Provider Component
 function Provider({ children }) {
     const [books, setBooks] = useState([]);
 
-    const fetchBooks = async () => {
+    const fetchBooks = useCallback(async () => {
         const response = await axios.get('http://localhost:3001/books');
 
         setBooks(response.data);
-    }
+    }, []);
 
     const createBook = async (title) => {
         const response = await axios.post('http://localhost:3001/books', { title });
