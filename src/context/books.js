@@ -1,7 +1,7 @@
 import { createContext, useState, useCallback } from "react";
 import axios from "axios";
 
-// Creating the Context Oject
+// Creating the Context Object
 const BooksContext = createContext();
 
 // Provider Component

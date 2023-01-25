@@ -10,15 +10,17 @@ function BookShow({ book }) {
         deleteBookById(book.id);
     }
 
+    // Showing/hiding the edit button
     const handleEditClick = () => {
         setShowEdit(!showEdit);
-        // lembra que o ! antes inverte o value atual
     }
 
+    // After submitting the changes, the "edit mode" goes away
     const handleSubmit = () => {
         setShowEdit(false);
     }
 
+    // Switching between normal view and edit mode
     let content = <h3>{book.title}</h3>;
 
     if (showEdit) {
@@ -26,10 +28,15 @@ function BookShow({ book }) {
     }
 
     return (
+        // BOOK CARD
         <div className="book-show">
-            <img src={`https://picsum.photos/seed/${book.id}/300/200`} alt="random book"></img>
+            {/* Book image */}
+            <img src={`https://picsum.photos/seed/${book.id}/300/200`} alt="book"></img>
+
+            {/* Normal book title or edit mode */}
             <div>{content}</div>
 
+            {/* Buttons */}
             <div className="actions">
                 <button className="edit" onSubmit={handleSubmit} onClick={handleEditClick}>
                     Edit

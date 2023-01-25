@@ -1,12 +1,16 @@
 {
   "books": [
     {
-      "title": "joao E MARIA",
+      "title": "Dom Casmurro",
       "id": 1
     },
     {
-      "title": "marica",
+      "title": "Mobby Dick",
       "id": 5
+    },
+    {
+      "title": "Marcelo Mechi",
+      "id": 6
     }
   ]
 }

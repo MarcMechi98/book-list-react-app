@@ -13,7 +13,7 @@ function BookCreate() {
         e.preventDefault();
         createBook(title);
 
-        // Serve pra limpar o input depois do user submit
+        // Cleaning up the search term after submission
         setTitle('');
     }
 
