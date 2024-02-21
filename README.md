@@ -21,10 +21,10 @@ A dynamic and responsive single-page React app that allows users to add books to
 - API for book images
 
 ## Learning Outcomes
--Use of new React Hooks
--Implementing an API in a React app
--Applying responsive design with Bulma CSS
--Implementing editing and deleting feature
+- Use of new React Hooks
+- Implementing an API in a React app
+- Applying responsive design with Bulma CSS
+- Implementing editing and deleting feature
 
 ## Source
 This Projects comes from the Udemy course named: "Mordern React with Redux 2023", by Stephen Grider.
